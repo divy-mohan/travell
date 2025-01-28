@@ -78,6 +78,7 @@ WSGI_APPLICATION = 'neem_karoli_travellers.wsgi.application'
 
 DATABASES = {
     'default': {
+        
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
