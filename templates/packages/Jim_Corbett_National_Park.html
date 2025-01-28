@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} About Us | Neem Karoli Travellers{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static '/css/Jim_Corbett_National_Park.css' %}">
+{% endblock %}
+
+{% block c1 %}
+<section id="about" class="about-section">
+    <div class="about-container">
+        <h1 class="section-title">About Neem Karoli Travellers</h1>
+        <hr><p class="section-subtitle">Your Gateway to Jim Corbett National Park</p>
+        <p class="about-content">
+            Neem Karoli Travellers specializes in unforgettable wildlife safaris in Jim Corbett National Park, India's first and most renowned tiger reserve. We connect you with the raw beauty of the Indian wilderness, offering thrilling encounters with diverse wildlife and immersive experiences in the heart of nature.
+        </p>
+
+        <h2 class="mission-title">Our Mission</h2>
+        <p class="mission-content">
+            To provide authentic and responsible wildlife tourism experiences that foster a deeper appreciation for the natural world and support conservation efforts. We strive to create memorable journeys that are both enriching for our guests and sustainable for the environment.
+        </p>
+
+        <h2 class="offer-title">What We Offer</h2>
+        <ul class="offer-list">
+            <li>Expertly Guided Tours: In-depth insights from experienced naturalists and wildlife guides.</li>
+            <li>Pickup and Drop Facility: Seamless airport/railway station transfers for your convenience.</li>
+            <li>Comfortable Accommodation: A range of well-appointed hotels and resorts to choose from.</li>
+        </ul>
+
+        <h2 class="wildlife-title">Experience the Thrill of the Wild</h2>
+        <ul class="wildlife-list">
+            <li>Elephant Sighting: Witness majestic elephants in their natural habitat.</li>
+            <li>Tiger Safari: Embark on thrilling safaris to spot the elusive Bengal tiger.</li>
+            <li>Leopard Sighting: Observe the master of camouflage in action.</li>
+        </ul>
+
+        <h2 class="beyond-title">Beyond Wildlife</h2>
+        <ul class="beyond-list">
+            <li>Birdwatching: Discover colorful avian life amidst lush greenery.</li>
+            <li>Nature Walks: Enjoy scenic walks through the tranquil Corbett landscape.</li>
+        </ul>
+
+        <p class="cta">Join Neem Karoli Travellers and embark on a wildlife adventure that will leave you spellbound. We are committed to responsible tourism practices and ensuring your safety and comfort throughout your journey.</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static '/js/aos.js' %}"></script>
+<script>
+    AOS.init({
+        duration: 1200,
+    });
+</script>
+{% endblock %}

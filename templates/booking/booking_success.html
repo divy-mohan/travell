@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Booking Successful{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static '/css/booking_success.css' %}">
+{% endblock %}
+
+{% block c1 %}
+<section class="success-container">
+    <div class="success-message">
+        <h1>Booking Successful!</h1>
+        <p>Your booking has been confirmed. We look forward to welcoming you.</p>
+        <b><p>For Payment enquiry call us at 7517858678</p></b>
+        <p>If you have any special requests or need assistance, feel free to contact us on 7517858678, 6396326149, 7409811117</p>
+        <button class="cta-button" onclick="window.location.href='{% url 'home' %}';">Go to Home</button>
+        <button class="cta-button" onclick="window.location.href='{% url 'contact' %}';">Go to Contact Us</button>
+    </div>
+</section>
+
+
+{% endblock %}

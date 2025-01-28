@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact Us | Neem Karoli Travellers{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+{% block c1 %}
+<section id="contact" class="contact-section">
+    <div class="contact-header">
+        <h1>Contact Us</h1>
+        <p>We are here to assist you. Reach out to us using the details below.</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block c2 %}
+<section class="contact-cards">
+    <div class="contact-card">
+        <h2>Office Contact</h2>
+        <p><i class="fas fa-phone"></i> 7817858678</p>
+        <a href="https://wa.me/7817858678" class="whatsapp-button" target="_blank">
+            <img src="{% static 'images/whatsapp_logo.svg' %}" alt="WhatsApp Logo" class="whatsapp-logo">
+            Chat On WhatsApp
+        </a>
+    </div>
+    
+
+    <div class="contact-card">
+        <h2>Neeraj Kumar</h2>
+        <p><i class="fas fa-phone"></i> 6396326149</p>
+        <a href="https://wa.me/916396326149" class="whatsapp-button" target="_blank">
+            <img src="{% static 'images/whatsapp_logo.svg' %}" alt="WhatsApp Logo" class="whatsapp-logo">
+            Chat On WhatsApp
+        </a>
+    </div>
+
+    <div class="contact-card">
+        <h2>Pankaj Arya</h2>
+        <p><i class="fas fa-phone"></i> 7409811117</p>
+        <a href="https://wa.me/917409811117" class="whatsapp-button" target="_blank">
+            <img src="{% static 'images/whatsapp_logo.svg' %}" alt="WhatsApp Logo" class="whatsapp-logo">
+            Chat On WhatsApp
+        </a>
+    </div>
+</section>
+{% endblock %}
+
+
+{% block extra_js %}
+<script>
+    console.log("Contact Us page loaded.");
+</script>
+{% endblock %}

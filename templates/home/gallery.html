@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Gallery | Neem Karoli Travellers{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://unpkg.com/open-props">
+<link rel="stylesheet" href="https://unpkg.com/open-props/normalize.min.css">
+<link rel="stylesheet" href="{% static '/css/gallery.css' %}">
+{% endblock %}
+
+{% block c1 %}
+<h1>Life in the Wild</h1>
+<div class="container">
+    {% for item in Gallery %}
+        <div class="gallery-item" onclick="openModal('{{ item.image.url }}')">
+            <img src="{{ item.image.url }}" alt="{{ item.title }}">
+            <h3>{{ item.title }}</h3>
+            <!-- {% if item.description %}
+                <p>{{ item.description }}</p>
+            {% endif %} -->
+        </div>
+    {% empty %}
+        <p>No images available at the moment. Please check back later.</p>
+    {% endfor %}
+</div>
+
+<!-- Modal for full-size image -->
+<div id="modal" class="modal">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img id="modal-image" src="" alt="Full Size Image">
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  // Open modal with full size image
+  function openModal(imageUrl) {
+    document.getElementById('modal').classList.add('open');
+    document.getElementById('modal-image').src = imageUrl;
+  }
+
+  // Close modal
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+  }
+</script>
+{% endblock %}

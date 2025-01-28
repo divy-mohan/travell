@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %} <!-- Load humanize for intcomma -->
+{% block title %}Home | Neem Karoli Travellers{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+{% endblock %}
+
+{% block c1 %}
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            {% for hero in hero_images %}
+            <div class="swiper-slide">
+                <img src="{{ hero.image.url }}" alt="{{ hero.alt_text }}" class="hero-image">
+            </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    <div class="hero-content">
+        <h1>Embark on a Journey into the Wild</h1>
+        <p>Explore untouched nature with our guided tours.</p>
+        <button class="cta-button">
+            <a href="{% url 'packages' %}" style="text-decoration: none; color: white;">Explore Packages</a>
+        </button>
+    </div>
+</section>
+{% endblock %}
+
+{% block c2 %}
+<!-- Gallery Section -->
+<section id="gallery" class="gallery-section">
+    <h2>Gallery of Wilderness</h2>
+    <div class="gallery-wrapper">
+        <div class="gallery-grid">
+            {% for gallery_image in gallery_images %}
+            <img src="{{ gallery_image.image.url }}" alt="{{ gallery_image.alt_text }}">
+            {% endfor %}
+        </div>
+        <!-- Duplicate the grid for a seamless looping effect -->
+        <div class="gallery-grid">
+            {% for gallery_image in gallery_images %}
+            <img src="{{ gallery_image.image.url }}" alt="{{ gallery_image.alt_text }}">
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Horizontal Divider -->
+<div class="divider-container">
+    <div class="divider-line"></div>
+    <div class="divider-line"></div>
+</div>
+{% endblock %}
+
+{% block c3 %}
+<!-- Tours Section -->
+<section id="tours" class="tours-section" data-aos="fade-up">
+    <h2>Our Safari Packages</h2>
+    <div class="tours-grid">
+        {% for package in safari_packages %}
+        <div class="tour-card" data-aos="zoom-in">
+            <img src="{{ package.image.url }}" alt="{{ package.title }}">
+            <h3>{{ package.title }}</h3>
+            <p>{{ package.duration }} | INR {{ package.price|intcomma }} | All-Inclusive</p>
+            <a href="{{ package.details_url }}" class="cta-button" target="_blank">View Details</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+            delay: 2000,
+        },
+    });
+
+    // Intersection Observer to trigger fadeInUp animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    // Observe all tour cards
+    document.querySelectorAll('.tour-card').forEach((card) => {
+        observer.observe(card);
+    });
+</script>
+{% endblock %}

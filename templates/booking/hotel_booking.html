@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Hotel Booking{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static '/css/hotel_booking.css' %}">
+{% endblock %}
+
+{% block c1 %}
+<section class="carousel-container">
+    <div class="carousel">
+        <div class="carousel-images">
+            {% for image in carousel_images %}
+                <img src="{{ image.image.url }}" alt="{{ image.alt_text }}" class="carousel-slide">
+            {% endfor %}
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+</section>
+{% endblock %}
+
+{% block c2 %}
+<section>
+    <h1>Hotel Booking Form</h1>
+    <form method="post" class="booking-form">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="{{ form.name.id_for_label }}">Full Name</label>
+            {{ form.name }}
+        </div>
+        
+        <div class="form-group">
+            <label for="{{ form.email.id_for_label }}">Email Address</label>
+            {{ form.email }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.phone.id_for_label }}">Phone Number</label>
+            {{ form.phone }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.check_in_date.id_for_label }}">Check-In Date</label>
+            {{ form.check_in_date }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.check_out_date.id_for_label }}">Check-Out Date</label>
+            {{ form.check_out_date }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.guests.id_for_label }}">Number of Guests</label>
+            {{ form.guests }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.special_requests.id_for_label }}">Special Requests</label>
+            {{ form.special_requests }}
+        </div>
+
+        <button type="submit" class="cta-button">Book Now</button>
+    </form>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // JavaScript for the Carousel
+    
+    let slideIndex = 0;
+
+    // Function to show slides
+    function showSlides() {
+        let slides = document.querySelectorAll('.carousel-slide');
+        let carouselImages = document.querySelector('.carousel-images');
+        
+        if (slideIndex >= slides.length) {
+            slideIndex = 0; // Reset to the first slide
+        }
+        if (slideIndex < 0) {
+            slideIndex = slides.length - 1; // Go to the last slide
+        }
+        
+        // Set the transform to move the images
+        carouselImages.style.transition = "transform 0.5s ease-in-out";
+        carouselImages.style.transform = `translateX(-${slideIndex * 100}%)`;
+    }
+
+    // Function to move to the next or previous slide
+    function moveSlide(n) {
+        slideIndex += n;
+        showSlides();
+    }
+
+    // Automatically move slides every 3 seconds
+    setInterval(function() {
+        moveSlide(1);
+    }, 3000); // Change slides every 3 seconds
+
+    // Initially show the first slide when the page loads
+    document.addEventListener("DOMContentLoaded", showSlides);
+
+    </script>
+    
+
+{% endblock %}
+

@@ -1,0 +1,348 @@
+/* home.css with gallery and tour */
+/* General Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    color: #f0f0f0;
+    background-color: #7de47d;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* Hero Section Styling */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin-top: 0px; /* Remove gap between header and hero */
+    padding-top: 0; /* Remove padding, if any */
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(70%);
+}
+
+.hero-content {
+    position: absolute;
+    z-index: 2;
+    padding: 40px;
+    backdrop-filter: blur(3px);
+    box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
+    border-radius: 15px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Media query for mobile view */
+@media (max-width: 768px) {
+    .hero-content {
+        backdrop-filter: blur(8px);
+        padding: 20px;
+        padding-left: 10px;
+        box-shadow:none;
+    }
+}
+
+
+.swiper-pagination-bullet {
+    background: #ffa500;
+    width: 12px;
+    height: 12px;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: #ffa500;
+}
+
+/* Scale-up Animation */
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+/* Fade-in and Slide-up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tours Section Styling */
+.tours-section {
+    margin-top: -6%;
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f0f0f0; /* Light background for contrast */
+}
+
+.tours-section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.5s; /* Delayed for smooth entry */
+}
+
+.tours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.tour-card {
+    background: #7de47d8c;
+    box-shadow: 0px 0px 30px rgba(13, 99, 17, 0.6); /* Adjust opacity of shadow for a softer effect */
+    border-radius: 15px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 350px;
+    transition: transform 0.3s ease-in-out, opacity 0.5s;
+    padding: 15px;
+    text-align: left;
+
+    /* Hidden initially for animation */
+    opacity: 0;
+    transform: translateY(30px);
+
+    /* Add grainy texture and mirror effect */
+    position: relative;
+    background: rgba(255, 255, 255, 0.1); /* Add a light transparent background */
+}
+
+.tour-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); /* Grainy texture */
+    opacity: 0.2; /* Control the intensity of the texture */
+    pointer-events: none; /* Ensure it doesn’t block interaction */
+    z-index: 1; /* Place the texture above the background but below the content */
+}
+
+/* Adding a hover effect to make it interactive */
+.tour-card:hover {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+/* Ensure the content stays above the grainy texture */
+.tour-card .content {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Animation applied when in view */
+.tour-card.in-view {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Hover Effect */
+.tour-card:hover {
+    transform: scale(1.05);
+}
+
+/* Image Styling */
+.tour-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.tour-card h3 {
+    font-size: 1.8rem;
+    margin: 15px 0;
+    color: #333;
+}
+
+.tour-card p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.divider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 0;
+    position: relative;
+}
+
+.divider-line {
+    height: 2px;
+    background-color: #444;
+    flex-grow: 1;
+    margin: 0 10px;
+    opacity: 0.8;
+}
+
+.divider-icon {
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 60px;
+    height: 60px;
+    z-index: 1;
+}
+
+.divider-icon img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Footer Styling */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #102410;
+    color: #d4edda;
+}
+
+/* Ensure sections are visible */
+section {
+    margin-top: 80px; /* Prevent overlap with fixed navbar */
+}
+
+/* General styles */
+
+/* Gallery Section Styling */
+#gallery {
+    margin-top: -6%;
+    padding: 0px 20px;
+    background: #f0f0f0;
+    text-align: center;
+}
+
+#gallery h2 {
+    margin-top: 6%;
+    font-size: 2.5rem;
+    color: #333333;
+}
+
+/* Gallery Wrapper */
+.gallery-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 200px; /* Adjust as per your design */
+    display: flex;
+    align-items: center;
+}
+
+/* Scrolling Gallery Grid with Wave Animation */
+.gallery-grid {
+    display: flex;
+    animation: wave-scroll 20s linear infinite;
+    position: relative;
+    width: calc(200% + 20px); /* Double width for seamless scrolling */
+}
+
+.gallery-grid img {
+    width: 200px; /* Adjust width as needed */
+    height: 150px; /* Adjust height as needed */
+    object-fit: cover;
+    margin: 0 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.2) rotate(3deg); /* Adds a slight tilt effect */
+}
+
+/* Wave Scroll Animation */
+@keyframes wave-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Seamless Transition */
+.gallery-grid:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background: inherit;
+}
+
+
+
+/* Mobile Styling */
+@media (max-width: 768px) {
+
+/* Hero Section Styling */
+.hero-section {
+    position: relative;
+    height: 60vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin-top: 0px; /* Remove gap between header and hero */
+    padding-top: 0; /* Remove padding, if any */
+}
+
+#gallery h2 {
+    margin-top: 6%;
+    font-size: 2rem;
+    padding-top: 10%;
+    font-weight: bolder;
+    color: #333333;
+}
+.tours-section h2 {
+    margin-top: -12%;
+    font-size: 2rem;
+    padding-top: 10%;
+    font-weight: bolder;
+    color: #333333;
+}
+
+}

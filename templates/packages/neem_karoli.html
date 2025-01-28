@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} About Us | Neem Karoli Travellers {% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static '/css/neem_karoli.css' %}">
+{% endblock %}
+
+{% block c1 %}
+<section id="about" class="about-section">
+    <div class="about-container">
+        <h1 class="section-title">About Neem Karoli Travellers</h1>
+        <hr>
+        <p class="section-subtitle">Your Gateway to Spiritual Adventures</p>
+        <p class="about-content">
+            Neem Karoli Travellers is your trusted companion for exploring the profound spiritual legacy of Neem Karoli Baba. We offer unique journeys that blend spirituality with adventure, allowing you to immerse yourself in the serene beauty of the Himalayas while connecting with the teachings of Neem Karoli Baba.
+        </p>
+
+        <h2 class="mission-title">Our Mission</h2>
+        <p class="mission-content">
+            To provide transformative and sustainable travel experiences that foster a deeper connection to spirituality and nature. Our mission is to guide travelers on meaningful journeys, exploring the teachings of Neem Karoli Baba and the breathtaking landscapes of the Himalayas.
+        </p>
+
+        <h2 class="offer-title">What We Offer</h2>
+        <ul class="offer-list">
+            <li><strong>Guided Spiritual Tours:</strong> Explore sacred sites like Neem Karoli Baba's ashram, Kainchi Dham, and other historic locations with our experienced guides.</li>
+            <li><strong>Exclusive Services:</strong>
+                <ul>
+                    <li><strong>Pickup and Drop Facility:</strong> Seamless transfers from airports and railway stations to your destinations.</li>
+                    <li><strong>Comfortable Accommodation:</strong> Handpicked hotels and serene retreats near spiritual landmarks.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2 class="wildlife-title">Experience the Serenity</h2>
+        <ul class="wildlife-list">
+            <li><strong>Scenic Landscapes:</strong> Rejuvenate amidst lush forests, pristine rivers, and majestic mountain views.</li>
+            <li><strong>Wildlife Adventures:</strong> Encounter diverse Himalayan wildlife, from colorful birds to majestic elephants.</li>
+        </ul>
+
+        <h2 class="beyond-title">Beyond the Journey</h2>
+        <ul class="beyond-list">
+            <li><strong>Mindfulness and Meditation:</strong> Participate in meditation sessions inspired by Neem Karoli Baba's teachings.</li>
+            <li><strong>Community Connections:</strong> Engage with local communities to learn about Himalayan traditions and culture.</li>
+        </ul>
+
+        <p class="cta">Join Neem Karoli Travellers and embark on a soulful journey of discovery, spirituality, and adventure. We are committed to ensuring your safety, comfort, and a memorable experience.</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static '/js/aos.js' %}"></script>
+<script>
+    AOS.init({
+        duration: 1200,
+    });
+</script>
+{% endblock %}

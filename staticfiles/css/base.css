@@ -1,0 +1,320 @@
+/* base.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    color: #f0f0f0;
+    background-color: #001d00;
+    padding-top: 80px; /* Ensure content isn't hidden behind navbar */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap'); /* Import Yatra One font */
+
+/* Logo Styling */
+/* Logo Container */
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Yatra One'; /* Apply Yatra One font */
+    font-size: 1.5rem; /* Default font size */
+    color: #7bf397; /* Logo text color */
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Logo Image */
+.logo-img {
+    align-self: center; /* Align the image with the center of the text */
+    width: 40px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 15px; /* Adds space between the image and text */
+    border-radius: 0%; /* Optional: make it circular */
+}
+
+/* Anchor tag inside Logo */
+.logo a {
+    display: flex;
+    align-items: center; /* Ensure the text aligns vertically with the image */
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from the parent .logo */
+    font-size: 2rem; /* Default font size */
+}
+
+/* Responsive adjustments */
+
+/* For screens smaller than 768px (Tablets and Mobile Devices) */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 1.2rem; /* Reduce logo text size */
+    }
+
+    .logo-img {
+        width: 30px; /* Reduce logo image size */
+        margin-right: 10px; /* Reduce gap between the image and text */
+    }
+
+    .logo a {
+        font-size: 1.5rem; /* Adjust font size for the link */
+    }
+}
+
+/* For screens smaller than 480px (Small Mobile Devices) */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1rem; /* Further reduce the text size for small screens */
+    }
+
+    .logo-img {
+        margin-left: -14px;
+        width: 50px; /* Further reduce the image size */
+        margin-right: 8px; /* Reduce gap further */
+    }
+
+    .logo a {
+        font-size: 1.2rem; /* Reduce font size for the link */
+    }
+}
+
+
+
+
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px; /* Set a fixed height */
+    padding: 20px 10px;
+    margin: auto;
+    backdrop-filter: blur(30px);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.37);
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar a {
+    margin: 0 10px;
+    color: #d4edda;
+    text-decoration: none;
+}
+
+/* Navbar Links */
+.nav-links {
+    display: flex; /* Display menu as flex for desktop */
+    flex-direction: row;
+}
+
+.nav-links a {
+    margin: 0 10px;
+    color: #d4edda;
+    text-decoration: none;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Hover Effect */
+.nav-links a:hover {
+    color: #00ff3c; /* Light green color on hover */
+}
+
+/* Underline Animation */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #7bf397;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%; /* Expand underline on hover */
+}
+
+/* Dropdown Styling */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+    color: #7bf397;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: rgba(20, 50, 20, 0.9);
+    border-radius: 5px;
+    padding: 10px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    font-size: smaller;
+    color: #d4edda;
+    padding: 5px 15px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #7bf397;
+    color: #053001;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Mobile and Tablet Navbar Styling */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #021601c4;
+        width: 200px;
+        padding: 1rem;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navbar {
+        padding: 20px;
+    }
+}
+
+/* Navbar Toggle (Hamburger) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 20px 10px;
+    margin: auto;
+    backdrop-filter: blur(30px);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.37);
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    color: #ffffff;
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    right: 20px; /* Adjust this value to make sure the button is visible */
+    top: 20px; /* Keep it aligned vertically */
+    z-index: 1001; /* Make sure it stays on top */
+    transition: transform 0.3s ease;
+}
+
+/* Tablet and Desktop */
+@media (min-width: 769px) {
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+}
+
+/* Modified CTA Button Styling */
+.cta-button {
+    background: linear-gradient(135deg, #ff4500, #530000);
+    border: none;
+    margin-right: 5%;
+    padding: 12px 10px; /* Increased padding for a more prominent button */
+    color: white;
+    border-radius: 8px; /* Slightly rounded edges */
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Slightly lighter shadow */
+    font-size: 1.2rem; /* Keep it readable */
+    font-weight: 600; /* Bold text */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05); /* Slightly grow on hover */
+    background: linear-gradient(180deg, #00ff2a, #053001); /* Change gradient on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+}
+
+.cta-button:focus {
+    outline: none; /* Remove focus outline */
+    box-shadow: 0 0 0 2px #00ff3c; /* Add subtle green outline on focus */
+}
+
+/* Footer Styling */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #102410;
+    color: #d4edda;
+}
+
+/* Mobile Styling */
+@media (max-width: 768px) {
+    .logo {
+        margin-left: 2px;
+        font-size: 17px;
+        font-weight: 600;
+        color: #7bf397;
+    }
+    
+
+    .home-link, .cta-button {
+        display: block;
+        align-self: center;
+        margin: 10px auto;
+        border-radius: 20px;
+        margin-right: 11%;
+        padding: auto; /* Increased padding for a more prominent button */
+        font-size: 1rem;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}

@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>{% block title %}Home | Neem Karoli Travellers{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{% static '/images/logo.png' %}">
+
+    <link rel="stylesheet" href="{% static '/css/base.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navbar -->
+<!-- Navbar -->
+<header class="navbar">
+    <div class="logo">
+        <a href="{% url 'home' %}">
+            <img src="{% static '/images/logo.png' %}" alt="Logo" class="logo-img">
+            Neem Karoli Travellers
+        </a>
+    </div>
+    <nav class="nav-links">
+        <div class="dropdown">
+            <a href="#about" class="dropdown-toggle">About</a>
+            <div class="dropdown-menu">
+                <a href="{% url 'Jim_Corbett_National_Park' %}">Jim Corbett National Park</a>
+                <a href="{% url 'neem_karoli' %}">Neem Karoli</a>
+                <a href="{% url 'chardham_yatra' %}">Chardham Yatra</a>
+                <a href="{% url 'adventure' %}">Adventure</a>
+            </div>
+        </div>
+        <a href="#tours">Tours</a>
+        <a href="{% url 'gallery' %}">Gallery</a>
+        <a href="{% url 'contact' %}">Contact</a>
+    </nav>
+    <button class="cta-button">
+        <a href="{% url 'booking' %}">Book Now</a>
+    </button>
+    <button class="menu-toggle" aria-label="Toggle navigation">
+        &#9776; <!-- Hamburger icon -->
+    </button>
+</header>
+
+    
+    
+
+    <!-- Main Content -->
+    {% block c1 %}
+    {% endblock %}
+
+    {% block c2 %}
+    {% endblock %}
+
+    {% block c3 %}
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Neem Karoli Travellers | Designed with Love for Nature | Developed by IItians</p>
+        <p>Follow us on social media</p>
+    </footer>
+
+    <script src="{% static '/js/aos.js' %}"></script>
+    <script>
+        AOS.init();
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            // Toggle active class for the nav menu
+            navLinks.classList.toggle('active');
+
+            // Change the icon dynamically
+            if (menuToggle.innerHTML.trim() === '&#9776;') {
+                menuToggle.innerHTML = '&times;'; // Close icon
+                menuToggle.setAttribute('aria-label', 'Close navigation');
+            } else {
+                menuToggle.innerHTML = '&#9776;'; // Hamburger icon
+                menuToggle.setAttribute('aria-label', 'Open navigation');
+            }
+        });
+    });
+</script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

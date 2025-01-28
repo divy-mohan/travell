@@ -1,0 +1,62 @@
+/* Styling for the success container */
+.success-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;  /* Full height minus navbar */
+    background-color: #079786;  /* Light background color for success */
+    padding: 20px;
+}
+
+.success-message {
+    text-align: center;
+    background-color: #7bf397;  /* Light green background */
+    color: #310101;  /* White text */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+}
+
+.success-message h1 {
+    font-size: 2.5rem;
+    color: #3b2c02;
+    font-family: 'Yatra One', sans-serif;
+    margin-bottom: 20px;
+}
+
+.success-message p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    background: linear-gradient(135deg, #ff4500, #530000);
+    border: none;
+    padding: 10px 20px;
+    color: rgb(245, 241, 241);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(0.9);
+    background: linear-gradient(180deg, #00ff2a, #053001);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Mobile and tablet styling */
+@media (max-width: 768px) {
+    .success-message h1 {
+        font-size: 2rem;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+    }
+}
+
+

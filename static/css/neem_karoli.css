@@ -1,0 +1,183 @@
+/* About Page Styling */
+/* About Page Styling */
+body{
+    background-color: #ffffff;
+}
+
+.navbar a {
+    margin: 0 10px;
+    color: #012208;
+    text-decoration: none;
+}
+
+.about-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #053001);
+    color: #0f0101;
+    margin-top: -16px;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden; /* Prevent scroll due to animations */
+}
+
+.section-title {
+    font-size: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 1200;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c0c00;
+    text-shadow: 2px 2px 10px rgb(255, 255, 255);
+    letter-spacing: 1px;
+    animation: fadeInUp 1.2s ease;
+}
+
+.section-subtitle {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #000e03;
+    font-weight: bolder;
+    animation: fadeInUp 1.4s ease;
+}
+
+.about-content {
+    font-size: 1.3rem;
+    line-height: 1.9;
+    text-align: justify;
+    margin-bottom: 50px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInUp 1.6s ease;
+}
+
+/* Mission, Offer, Wildlife, Beyond Titles */
+.mission-title,
+.offer-title,
+.wildlife-title,
+.beyond-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #002c06;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    animation: fadeInUp 1.8s ease;
+}
+
+.mission-content,
+.offer-list,
+.wildlife-list,
+.beyond-list {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 35px;
+    animation: fadeInUp 2s ease;
+}
+
+.offer-list,
+.wildlife-list,
+.beyond-list {
+    list-style: square;
+    padding-left: 50px;
+}
+
+.offer-list li,
+.wildlife-list li,
+.beyond-list li {
+    margin-bottom: 12px;
+    color: #00290a;
+    position: relative;
+    animation: fadeInUp 2.2s ease;
+}
+
+.offer-list li::before,
+.wildlife-list li::before,
+.beyond-list li::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #330e01;
+    border-radius: 50%;
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Call to Action Button Styling */
+.cta {
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #053001, #053001);
+    padding: 15px 30px;
+    border-radius: 12px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 2.4s ease;
+}
+
+.cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+    background: linear-gradient(135deg, #00ff2a, #053001);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+}
+
+[data-aos="fade-up"] {
+    transform: translateY(30px);
+}
+
+[data-aos="fade-up"].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 1.4rem;
+    }
+
+    .about-content {
+        font-size: 1.1rem;
+    }
+
+    .mission-title,
+    .offer-title,
+    .wildlife-title,
+    .beyond-title {
+        font-size: 1.6rem;
+    }
+
+    .cta {
+        font-size: 1.2rem;
+        padding: 12px 24px;
+    }
+}

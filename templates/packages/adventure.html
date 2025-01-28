@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us | Chardham Yatra{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/adventure.css' %}">
+{% endblock %}
+
+{% block c1 %}
+<section id="about" class="about-section">
+    <div class="about-container">
+        <h1 class="section-title">About Chardham Yatra: Your Journey to Spiritual Awakening</h1>
+        <hr class="section-divider">
+        <p class="section-subtitle">Embark on a Soulful Journey through the Sacred Char Dhams</p>
+        <p class="about-content">
+            Chardham Yatra is more than just a travel agency; we are your gateway to profound spiritual experiences. We specialize in organizing personalized pilgrimages, with a special focus on connecting travelers with the sacred legacy of Neem Karoli Baba and the holy Char Dhams of Uttarakhand.
+        </p>
+
+        <h2 class="mission-title">Our Mission</h2>
+        <p class="mission-content">
+            To facilitate transformative journeys that nurture spiritual growth, deepen your connection with the divine, and create lasting memories. We are dedicated to providing authentic, enriching experiences that honor the sacredness of your pilgrimage while ensuring your comfort and well-being.
+        </p>
+
+        <h2 class="offer-title">What We Offer</h2>
+        <ul class="offer-list">
+            <li>
+                <strong>Customized Chardham Yatra Packages:</strong> Flexible packages tailored to your needs, covering the four holy sites:
+                <ul>
+                    <li><strong>Badrinath:</strong> Nestled among snow-capped Himalayan peaks, this sacred site dedicated to Lord Vishnu offers breathtaking views and spiritual solace.</li>
+                    <li><strong>Kedarnath:</strong> Located in the rugged terrain of the Himalayas, this temple dedicated to Lord Shiva is a revered destination for pilgrims, reachable via a thrilling trek.</li>
+                    <li><strong>Yamunotri:</strong> The origin of the Yamuna River and a shrine dedicated to Goddess Yamuna, this location provides stunning mountain views and rejuvenating hot springs.</li>
+                    <li><strong>Gangotri:</strong> The source of the Ganges River and home to Goddess Ganga, this holy site is known for its captivating natural beauty and spiritual significance.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Neem Karoli Baba Ashram Visits:</strong> A serene visit to Kainchi Dham, the sacred ashram of Neem Karoli Baba, allows you to experience his divine energy and teachings.
+            </li>
+            <li>
+                <strong>Inclusive Services:</strong>
+                <ul>
+                    <li><strong>Guided Tours:</strong> Expert guides accompany you throughout your journey, providing insights into the spiritual and historical significance of each site.</li>
+                    <li><strong>Pickup and Drop Facility:</strong> Seamless airport and railway station transfers for hassle-free travel.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Exclusive Services:</strong> Comfortable, well-appointed accommodations near pilgrimage sites to ensure your stay is restful and rejuvenating.
+            </li>
+        </ul>
+
+        <h2 class="wildlife-title">Experience the Divine</h2>
+        <ul class="wildlife-list">
+            <li><strong>Immerse Yourself in Spirituality:</strong> Engage in rituals, prayers, and meditation at sacred sites to seek blessings and inner peace.</li>
+            <li><strong>Witness Stunning Scenery:</strong> Marvel at the snow-capped peaks, lush valleys, and pristine rivers of the Himalayas.</li>
+            <li><strong>Connect with Local Culture:</strong> Experience the rich traditions of the Himalayan region by interacting with local communities.</li>
+        </ul>
+
+        <h2 class="cta-title">Join Us for an Unforgettable Pilgrimage</h2>
+        <p class="cta-content">
+            Choose Chardham Yatra for a meaningful journey that blends spirituality, adventure, and natural beauty. We are committed to making your pilgrimage safe, comfortable, and truly memorable.
+        </p>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/aos.js' %}"></script>
+<script>
+    AOS.init({
+        duration: 1200,
+    });
+</script>
+{% endblock %}

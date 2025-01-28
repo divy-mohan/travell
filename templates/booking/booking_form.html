@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Booking Form | Neem Karoli Travellers{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static '/css/booking.css' %}">
+{% endblock %}
+
+{% block c1 %}
+<section class="booking-form-section">
+    <div class="container">
+        <h2>Travel Safari Booking Form</h2>
+        <form method="post" class="booking-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-submit">Submit</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

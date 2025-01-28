@@ -1,0 +1,195 @@
+@import "https://unpkg.com/open-props";
+@import "https://unpkg.com/open-props/normalize.min.css";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  color: #f0f0f0;
+  background-color: #7de47d;
+  padding-top: 80px; /* Ensure content isn't hidden behind navbar */
+
+  display: grid;
+  place-items: center;
+  min-height: 80vh;
+  background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), var(--gradient-9); /* Texture + gradient */
+  background-size: cover; /* Adjust texture size */
+  background-attachment: fixed; /* Keep the background in place when scrolling */
+}
+
+:root {
+  --magnifier: 10;
+  --gap: 20px; /* Updated gap for wrapping layout */
+  --transition: 1s;
+}
+
+h1 {
+  font-family: 'Rock Salt', cursive; /* Apply the jungle font here */
+  color: green;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px; /* Set a fixed height */
+    padding: 20px 10px;
+    margin: auto;
+    background: rgba(20, 50, 20, 0.9);
+    color: white;
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar a {
+    margin: 0 10px;
+    color: #d4edda;
+    text-decoration: none;
+}
+
+/* General Navbar Links */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+}
+
+.container {
+  font-family: 'Rock Salt', cursive; /* Apply the jungle font here */
+  display: flex;
+  flex-wrap: wrap; /* Enable wrapping for better responsiveness */
+  gap: var(--gap); /* Controlled gap */
+  justify-content: center;
+  width: 90%; /* Container width */
+  height: auto; /* Allow dynamic height */
+  padding: 10px; /* Add padding for better spacing on small screens */
+}
+
+.gallery-item {
+  text-align: center;
+  max-width: 250px; /* Limit the width of items */
+  transition: transform var(--transition); /* Optional scaling effect on hover */
+  cursor: pointer; /* Make images clickable */
+  margin: 10px; /* Add margin between gallery items */
+}
+
+.gallery-item img {
+  --brightness: 0.75;
+  --grayscale: 1;
+  width: 100%; /* Ensure the image occupies the full width of the container */
+  height: 200px; /* Set a fixed height for uniformity */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: filter var(--transition), transform var(--transition); /* Smooth transitions */
+  filter: grayscale(var(--grayscale)) brightness(var(--brightness));
+  object-fit: cover; /* Ensure images maintain aspect ratio and cover the area */
+}
+
+.gallery-item img:hover {
+  --brightness: 1.15;
+  --grayscale: 0;
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.gallery-item h3 {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.gallery-item p {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Lightbox Modal (Full Size Image) */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+  .container {
+    width: 90%; /* Container width for large screens */
+  }
+
+  .gallery-item {
+    max-width: 200px; /* Reduce max-width for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem; /* Smaller font size for headings on tablets */
+  }
+
+  .container {
+    width: 95%; /* Adjust container width on tablets */
+  }
+
+  .gallery-item {
+    max-width: 150px; /* Further reduce max-width for small screens */
+    margin: 5px; /* Adjust margin for smaller screens */
+  }
+
+  .gallery-item img {
+    height: 150px; /* Reduce height of images for smaller screens */
+    --grayscale: 0;
+  }
+
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem; /* Adjust heading size for small mobile devices */
+  }
+
+  .gallery-item {
+    max-width: 100%; /* Full width items on very small screens */
+    margin: 5px; /* Adjust margin */
+  }
+
+  .gallery-item img {
+    height: 120px; /* Adjust height for small mobile devices */
+    --grayscale: 0;
+  }
+}

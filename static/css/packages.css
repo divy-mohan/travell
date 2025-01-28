@@ -1,0 +1,131 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    color: #f0f0f0;
+    background-color: #011801;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* Section Header */
+.section-header {
+    text-align: center;
+    padding: 30px 20px;
+    color: white;
+    background: linear-gradient(100deg, #043b04, #3aaf4f);
+}
+
+.section-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+/* Packages Grid */
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #102410;
+}
+
+/* Package Card */
+.package-card {
+    background: rgba(248, 71, 1, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgb(30, 255, 0);
+}
+
+.package-card img {
+    width: 100%; /* Ensures images take full width of the card */
+    height: 200px; /* Fixed height for uniformity */
+    object-fit: cover; /* Ensures the image fits without distortion */
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+
+.package-card img:hover {
+    box-shadow: #043b04;
+}
+
+
+.package-card h2 {
+    font-size: 1.8rem;
+    color: #d4edda;
+    margin: 10px 0;
+}
+
+.package-card p {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #c9c9c9;
+}
+
+.package-card ul {
+    text-align: left;
+    margin: 10px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.package-card ul li {
+    font-size: 0.9rem;
+    color: #a9d5a9;
+    margin: 5px 0;
+    padding-left: 15px;
+    position: relative;
+}
+
+.package-card ul li::before {
+    content: "•";
+    color: #7de47d;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* CTA Button Styling (reuse existing styles) */
+.package-card .cta-button {
+    margin-top: 15px;
+}
+
+/* Global <a> tag style */
+.package-card a {
+    color: #c9c9c9; /* Default link color */
+    text-decoration: none; /* Remove underline globally */
+}
+
+.package-card a:hover {
+    color: #012e03; /* Slightly lighter on hover */
+    font-weight: bold;
+    text-decoration: wavy;
+}
+
+/* Specific <a> inside .cta-button */
+.cta-button .cta-link {
+    color: #fff; /* White text for CTA link */
+    font-weight: bold; /* Bold text */
+    text-decoration: none; /* No underline */
+}
+
+.cta-button .cta-link:hover {
+    color: #eee; /* Lighter white on hover */
+}

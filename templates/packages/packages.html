@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Tours & Packages | Neem Karoli Travellers{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/packages.css' %}">
+{% endblock %}
+
+{% block c1 %}
+<section id="tours">
+    <div class="section-header">
+        <h1>Explore Our Tours & Packages</h1>
+        <p>Discover amazing destinations and experiences curated just for you.</p>
+    </div>
+    <div class="packages-grid">
+        {% for package in safari_packages %}
+        <div class="package-card">
+            <img src="{{ package.image.url }}" alt="{{ package.title }}">
+            <h2>{{ package.title }}</h2>
+            <hr>
+            <p>{{ package.description }}</p>
+            <ul>
+                <li>{{ package.activities }}</li>
+                <li>Inclusive: {{ package.inclusions }}</li>
+                <li>Exclusive: {{ package.exclusions }}</li>
+            </ul>
+            <button class="cta-button">
+                <a href="{% url 'booking' %}">Book Now</a>
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
