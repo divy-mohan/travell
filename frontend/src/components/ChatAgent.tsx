@@ -22,7 +22,7 @@ export default function ChatAgent() {
     // Generate a simple slug from the pathname to pass to API
     const slug = pathname === "/" ? "home" : pathname.replace("/", "");
 
-    fetch(`http://127.0.0.1:8000/api/v1/home/agent/?page=${slug}`)
+    fetch(`http://127.0.0.1:8000/api/v1/agent/?page=${slug}`)
       .then((res) => res.json())
       .then((json: AgentData) => {
         setData(json);
