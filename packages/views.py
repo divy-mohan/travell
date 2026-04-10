@@ -19,3 +19,11 @@ def chardham_yatra(request):
 # Create your views here.
 def adventure(request):
     return render(request, 'packages/adventure.html')
+
+from rest_framework import viewsets
+from .models import Package
+from .serializers import PackageSerializer
+
+class PackageViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Package.objects.all()
+    serializer_class = PackageSerializer

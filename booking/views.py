@@ -39,3 +39,25 @@ def book_hotel(request):
         'form': form,
         'carousel_images': carousel_images
     })
+
+
+from rest_framework import viewsets, mixins
+from rest_framework.throttling import ScopedRateThrottle
+from .models import Booking, HotelBooking, CarouselImage
+from .serializers import BookingSerializer, HotelBookingSerializer, CarouselImageSerializer
+
+class BookingViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
+    queryset = Booking.objects.all()
+    serializer_class = BookingSerializer
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = 'booking_submit'
+
+class HotelBookingViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
+    queryset = HotelBooking.objects.all()
+    serializer_class = HotelBookingSerializer
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = 'booking_submit'
+
+class CarouselImageViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = CarouselImage.objects.all()
+    serializer_class = CarouselImageSerializer

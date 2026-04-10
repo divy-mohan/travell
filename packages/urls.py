@@ -1,5 +1,9 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter()
+router.register(r'', views.PackageViewSet)
 
 urlpatterns = [
     path('', views.packages, name='packages'),  # Maps to /packages/
@@ -7,4 +11,5 @@ urlpatterns = [
     path('neem_karoli/', views.neem_karoli, name='neem_karoli'),
     path('chardham_yatra/', views.chardham_yatra, name='chardham_yatra'),
     path('adventure/', views.adventure, name='adventure'),
+    path('api/v1/', include(router.urls)),
 ]

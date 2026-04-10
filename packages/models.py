@@ -9,6 +9,11 @@ class Package(models.Model):
     inclusions = models.TextField()  # Inclusions in the package
     exclusions = models.TextField(blank=True)  # Exclusions in the package
     price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)  # Price of the package
+    
+    # SEO Fields
+    slug = models.SlugField(max_length=255, unique=True, blank=True, null=True, help_text="Unique URL identifier")
+    meta_title = models.CharField(max_length=200, blank=True, null=True, help_text="SEO Title")
+    meta_description = models.TextField(blank=True, null=True, help_text="SEO Description")
 
     def __str__(self):
         return self.title
